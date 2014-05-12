@@ -1,0 +1,18 @@
+<p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'add')) ?>">Додати новий альбом</a></p>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th> </th>
+    </tr>
+    <?php foreach($this->albums as $album) : ?>
+    <tr>
+        <td><?php echo $this->escape($album->title) ?></td> <!-- escape - метод который вфполняет экранирование -->
+        <td><?php echo $this->escape($album->artist) ?></td>
+        <td>
+            <a href="<?php $this->url(array('controller' => 'index', 'action' => 'edit', 'id' => $album->id)); ?>">Редагувати</a>
+            <a href="<?php $this->url(array('controller' => 'index', 'action' => 'delete', 'id' => $album->id)); ?>">Видали</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
